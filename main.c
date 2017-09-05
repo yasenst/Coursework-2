@@ -88,6 +88,7 @@ int Menu(void)
 	return i;
 }
 
+// Reads the data already stored in data.bin and puts it in a linked list
 void Load(Node** head)
 {
     FILE* fp;
@@ -108,6 +109,7 @@ void Load(Node** head)
     fclose(fp);
 }
 
+// allocates memory for a new node, asks user to input need information
 Node* Create_Node(Node **head)
 {
     Node* newNode = (Node*) malloc(sizeof(Node));
@@ -147,6 +149,7 @@ Node* Create_Node(Node **head)
     return newNode;
 }
 
+// calls create_node function and puts the newly created node at the front of the linked list
 void Add(Node** head)
 {
     Node* newNode = Create_Node(head);
@@ -154,6 +157,7 @@ void Add(Node** head)
     *head = newNode;
 }
 
+// deletes a node by give id from the user
 void Delete(Node** head)
 {
     Node *curr, *prev;
@@ -187,6 +191,7 @@ void Delete(Node** head)
     free(curr);
 }
 
+// swaps values of two nodes
 void Swap_Values(Node** a, Node** b)
 {
     Node* temp = (Node*) malloc(sizeof(Node));
@@ -212,6 +217,7 @@ void Swap_Values(Node** a, Node** b)
     free(temp);
 }
 
+// sort by price using bubble sort
 void Sort_by_Price(Node* head)
 {
     if(head == NULL) {
@@ -238,6 +244,7 @@ void Sort_by_Price(Node* head)
     }
 }
 
+//sort by name using bubble sort
 void Sort_by_Name(Node* head)
 {
     if(head == NULL) {
@@ -264,6 +271,7 @@ void Sort_by_Name(Node* head)
     }
 }
 
+//displays the list on the screen
 void Show(Node* head)
 {
     while(head != NULL) {
@@ -278,6 +286,7 @@ void Show(Node* head)
     printf("\n");
 }
 
+//changes price of a picture by id given by the user
 void Update(Node* head)
 {
     char str[10];
@@ -297,6 +306,7 @@ void Update(Node* head)
     getchar();
 }
 
+//writes the list to file data.bin
 void Save(Node* head)
 {
     FILE* fp;
@@ -314,6 +324,7 @@ void Save(Node* head)
     fclose(fp);
 }
 
+//frees memory at the end of execution
 void FreeList(Node*head)
 {
     Node* curr = head;
